@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "PersonalProject": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DB_SERVER": "localhost",
+        "DB_USER": "root",
+        "DB_PASSWORD": "mysql",
+        "DB_NAME": "Movies",
+        "DB_PORT": "3306"
+      }
+    }
+  }
+}
