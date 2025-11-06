@@ -14,35 +14,26 @@ namespace PersonalProject
         {
             get
             {
+                if (name == null || name =="")
+                {
+                    name = "Jeff";
+                }
                 return name;
             }
             set
             {
-                if (value != "" && value!= null)
-                {
-                    name = value;
-                }
+                name = value;
             }
         }
 
-        public DateTime Birthday { get; set; }
+        private DateTime birthday;
 
-
-        private List<Film> films;
-
-        public List<Film> Films
+        public Image image { get; set; }
+        public Celebrity (string initialName, DateTime initialBirthday, Image initialImage)
         {
-            get
-            {
-                return films;
-            }
-        }
-
-        public Celebrity(string name, DateTime birthday)
-        {
-            Name = name;
-            Birthday = birthday;
-            films = new List<Film>();
+            name = initialName;
+            birthday = initialBirthday;
+            image = initialImage;
         }
 
     }

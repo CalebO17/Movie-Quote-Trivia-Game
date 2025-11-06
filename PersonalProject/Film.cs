@@ -8,74 +8,22 @@ namespace PersonalProject
 {
     internal class Film
     {
-        private string name;
-
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                if (value != "")
-                {
-                    name = value;
-                }
-            }
-        }
+        public string name {  get; set; }
 
         private string description;
 
-        public string Description
-        {
-            get
-            {
-                return description;
-            }
-            set
-            {
-                if (value != "")
-                {
-                    description = value;
-                }
-            }
-        }
-
         private string director;
 
-        public string Director
-        { 
-            get
-            {
-                return director;
-            }
-            set
-            {
-                if (value != "")
-                {
-                    director = value;
-                }
-            }
-        }
+        private DateTime releaseDate;
 
-        public DateTime releaseDate;
-
-        
-
-        public Film(string name, string description, string director)
+        public Image image {  get; set; }
+        public Film(string initialName, string initialDescription, string initialDirector, DateTime initialReleaseDate, Image initialImage)
         {
-            Name = name;
-            Description = description;
-            Director = director;
-        }
-
-        public Film()
-        {
-            Name = "Pulp Fiction";
-            Description = "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.";
-            Director = "Quentin Tarantino";
-            releaseDate = new DateTime(1994, 10, 04);
+            name = initialName;
+            description = initialDescription;
+            director = initialDirector;
+            releaseDate = initialReleaseDate;
+            image = initialImage;
         }
 
 

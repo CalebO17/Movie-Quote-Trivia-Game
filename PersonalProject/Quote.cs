@@ -8,9 +8,11 @@ namespace PersonalProject
 {
     internal class Quote
     {
-        public string movieQuote;
-        public Celebrity celebrity;
-        public Film film;
+
+        public string movieQuote {  get; set; }
+        public Celebrity celebrity { get; set; }
+        public Film film { get; set; }
+
     }
 
 }
