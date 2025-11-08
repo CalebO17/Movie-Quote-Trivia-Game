@@ -1,2 +1,2 @@
 # Movie-Quote-Trivia-Game
-A movie quote trivia game that is being designed in C# using a custom MYSQL database that I designed.
+A movie quote trivia game that is being designed in C# using a custom MYSQL database that I designed. Still currently a work in progress
