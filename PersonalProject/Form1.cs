@@ -23,7 +23,8 @@ namespace PersonalProject
         int chosenQuoteIndex = 0;
         int score = 0;
         int incorrectGuesses = 0;
-
+        bool mode = true;
+        
         //Runs when exe file runs
         public Form1()
         {
@@ -35,7 +36,6 @@ namespace PersonalProject
         //Runs when start game button is clicked
         private void startGameBtn_Click(object sender, EventArgs e)
         {
-            loadData(); //Loads data from sql database
             startGame(); //Loads start game function
         }
 
@@ -172,7 +172,20 @@ namespace PersonalProject
 
         void startGame()
         {
+            celebrities.Clear();
+            quotes.Clear();
+            movies.Clear();
+            hints.Clear();
+            score = 0;
+            scoreNumbLbl.Text = score.ToString() + "/10";
+            incorrectGuesses = 0;
+            redX1.Visible = false;
+            redX2.Visible = false;
+            redX3.Visible = false;
+            loadData();
             startGameBtn.Visible = false;
+            movieGameTitleLbl.Visible = false;
+            quoteLbl.Visible = true;
             hintPbx.Visible = true;
             quoteTxtBox1.Visible = true;
             celebLbl1.Visible = true;
@@ -184,7 +197,9 @@ namespace PersonalProject
             skipPbx.Visible = true;
             scoreLbl.Visible = true;
             scoreNumbLbl.Visible = true;
+            displayRules();
             startRound();
+
         }
 
         //Function for adjusting visibility for starting round and adding logic
@@ -303,6 +318,7 @@ namespace PersonalProject
             assignMovieTextboxes(1, round[1], round[1] == chosenQuote.film);
             assignMovieTextboxes(2, round[2], round[2] == chosenQuote.film);
 
+
         }
 
 
@@ -351,37 +367,34 @@ namespace PersonalProject
             }
         }
 
-        void chooseButtonClick(Label lbl, bool mode)
+        void chooseButtonClick(Label lbl)
         {
 
             if (lbl.Tag == null)
             {
                 MessageBox.Show("Incorrect!");
+                wrongAnswer();
+                checkForGameOver();
+
             }
             else
             {
                 MessageBox.Show("Correct!");
                 score++;
                 scoreNumbLbl.Text = score.ToString();
+                checkForGameOver();
+                if (mode)
+                {
+                    guessTheMovie(quotes[chosenQuoteIndex]);
+                    mode = false;
+                }
+                else
+                {
+                    quotes.RemoveAt(chosenQuoteIndex);
+                    startRound();
+                    mode = true;
+                }
             }
-            quotes.RemoveAt(chosenQuoteIndex);
-            if (incorrectGuesses == 3)
-            {
-                MessageBox.Show("You lose!");
-            }
-            else if (score == 10)
-            {
-                MessageBox.Show("You win!");
-            }
-            if(mode)
-            {
-                guessTheMovie(quotes[chosenQuoteIndex]);
-            }
-            else
-            {
-                startRound();
-            }
-
         }
         private void skipPbx_Click(object sender, EventArgs e)
         {
@@ -421,6 +434,7 @@ namespace PersonalProject
 
         void loadTitleScreen()
         {
+            movieGameTitleLbl.Visible = true;
             startGameBtn.Visible = true;
             celebPbx1.Visible = false;
             celebPbx2.Visible = false;
@@ -440,18 +454,59 @@ namespace PersonalProject
 
         }
 
+        void displayRules()
+        {
+            MessageBox.Show("How to play: \n1)A movie quote will be displayed to you\n" +
+        "2)You will be given three options of who said the quote" +
+        "\n3)If you guess correctly, you will gain a point and proceed to a bonus round. 10 points and you win! if you get it incorrect you will be given an X. Three X's and you lose" +
+        "\n4)In the bonus round, you will be given an opportunity to guess which movie the quote is from. If you guess correctly, you gain a point. However, if you guess incorrectly you do NOT gain an X");
+        }
+
         private void choose1Btn_Click(object sender, EventArgs e)
         {
-
+            chooseButtonClick(celebLbl1);
         }
 
         private void choose2Btn_Click(object sender, EventArgs e)
         {
-
+            chooseButtonClick(celebLbl2);
         }
 
         private void choose3Btn_Click(object sender, EventArgs e)
         {
+            chooseButtonClick(celebLbl3);
+        }
+
+        void checkForGameOver()
+        {
+            if (incorrectGuesses == 3)
+            {
+                MessageBox.Show("You lose!");
+                DialogResult gameOver = MessageBox.Show("Play again?", "Game Over", MessageBoxButtons.YesNo);
+                if (gameOver == DialogResult.Yes)
+                {
+                    startGame();
+
+                }
+                else
+                {
+                    loadTitleScreen();
+                }
+            }
+            else if (score == 10)
+            {
+                MessageBox.Show("You win!");
+                DialogResult gameOver = MessageBox.Show("Play again?", "Game Over", MessageBoxButtons.YesNo);
+                if(gameOver == DialogResult.Yes)
+                {
+                    startGame();
+
+                }
+                else
+                {
+                    loadTitleScreen();
+                }
+            }
 
         }
     }

@@ -47,6 +47,8 @@
             skipPbx = new PictureBox();
             hintPbx = new PictureBox();
             choose2Btn = new Button();
+            movieGameTitleLbl = new Label();
+            quoteLbl = new TextBox();
             ((System.ComponentModel.ISupportInitialize)celebPbx1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)celebPbx2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)celebPbx3).BeginInit();
@@ -62,7 +64,7 @@
             startGameBtn.BackgroundImageLayout = ImageLayout.Stretch;
             startGameBtn.FlatStyle = FlatStyle.Flat;
             startGameBtn.Font = new Font("Rockwell Extra Bold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            startGameBtn.Location = new Point(333, 197);
+            startGameBtn.Location = new Point(361, 218);
             startGameBtn.Name = "startGameBtn";
             startGameBtn.Size = new Size(730, 340);
             startGameBtn.TabIndex = 0;
@@ -105,9 +107,9 @@
             // 
             // quoteTxtBox1
             // 
-            quoteTxtBox1.BackColor = Color.Violet;
-            quoteTxtBox1.Font = new Font("Franklin Gothic Medium Cond", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            quoteTxtBox1.Location = new Point(459, 38);
+            quoteTxtBox1.BackColor = Color.DodgerBlue;
+            quoteTxtBox1.Font = new Font("Franklin Gothic Medium", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            quoteTxtBox1.Location = new Point(459, 83);
             quoteTxtBox1.Multiline = true;
             quoteTxtBox1.Name = "quoteTxtBox1";
             quoteTxtBox1.Size = new Size(548, 127);
@@ -262,12 +264,37 @@
             choose2Btn.Visible = false;
             choose2Btn.Click += choose2Btn_Click;
             // 
+            // movieGameTitleLbl
+            // 
+            movieGameTitleLbl.AutoSize = true;
+            movieGameTitleLbl.BackColor = Color.DodgerBlue;
+            movieGameTitleLbl.Font = new Font("Gill Sans Ultra Bold", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            movieGameTitleLbl.Location = new Point(436, 115);
+            movieGameTitleLbl.Name = "movieGameTitleLbl";
+            movieGameTitleLbl.Size = new Size(597, 69);
+            movieGameTitleLbl.TabIndex = 25;
+            movieGameTitleLbl.Text = "Movie Quote Game!";
+            // 
+            // quoteLbl
+            // 
+            quoteLbl.BackColor = Color.White;
+            quoteLbl.Font = new Font("Franklin Gothic Medium Cond", 19.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            quoteLbl.Location = new Point(646, 3);
+            quoteLbl.Multiline = true;
+            quoteLbl.Name = "quoteLbl";
+            quoteLbl.Size = new Size(158, 74);
+            quoteLbl.TabIndex = 26;
+            quoteLbl.Text = "Quote:";
+            quoteLbl.Visible = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.Green;
+            BackgroundImage = Properties.Resources.Screenshot_2025_11_08_150135;
             ClientSize = new Size(1442, 848);
+            Controls.Add(quoteLbl);
+            Controls.Add(movieGameTitleLbl);
             Controls.Add(hintPbx);
             Controls.Add(skipPbx);
             Controls.Add(scoreNumbLbl);
@@ -320,5 +347,7 @@
         private PictureBox skipPbx;
         private PictureBox hintPbx;
         private Button choose2Btn;
+        private Label movieGameTitleLbl;
+        private TextBox quoteLbl;
     }
 }
