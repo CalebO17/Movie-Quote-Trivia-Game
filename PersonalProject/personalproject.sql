@@ -63,13 +63,13 @@ INSERT INTO Quotes (quote_line, actor_id, movie_id) VALUES
 ('Mmm, This Is A Tasty Burger!', 1, 1),
 ('Other charcter: Were you always this stupid, or did you take lessons? _________: I took lessons.', 1,2),
 ('Now that... is a cheeseburger.', 2, 3),
-('You better lawyer up asshole, because I\'m not coming back for 30%, I\'m coming back for EVERYTHING.', 3, 4),
+('You better lawyer up, because I\'m not coming back for 30%, I\'m coming back for EVERYTHING.', 3, 4),
 ('You just keep thinking, Butch. That\'s what you\'re good at', 4, 5),
 ('I\'m not on a diet. I\'m just crying five times a day', 5, 6),
 ('How far do you think someone could run barefoot out here?', 6, 7),
 ('Stupid is as stupid does', 7, 8),
 ('My planet Arrakis is so beautiful when the sun is low. Rolling over the sands. You can see spice in the air', 8, 9),
-('That\'s a very fucking weird way to put it!', 9, 10);
+('That\'s a very weird way to put it!', 9, 10);
 
 INSERT INTO Hints (actor_id, hint) VALUES
 (1, 'This person was an usher at Martin Luther King\'s funeral'),
